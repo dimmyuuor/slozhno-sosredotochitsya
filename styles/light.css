@@ -6,50 +6,70 @@
 
 
 :root.theme_light { 
+  --background-image: url(../images/cover-image-light.png);
   --decor-element: #353430;
   --button-color: #353430;
   --title-color: #FFC2E6;
-  --shadow-title-color: #FF0070;
+  --shadow-title-footer-color: #FF0070;
   --subtitle-text: #353430;
   --background-subtitle-color: #FF8DCB;
-  --background-color: #FFF1F7;
   --text-color-desc: #353430;
   --container-title-color: #353430;
   --link-text: #FF8DCB;
   --hover-focus-link-color: #353430;
   --footer-title-color: #FFC2E6;
-  --footer-title-shadow-color: #FF0070;
-  --hover-focus-button-color: #353430;
-  --backround-image: url(../images/cover-image-light.png);
+  --hover-focus-button-color: #32312D66;
+  --hover-active-button-color: #353430;
 }
 
 @media (prefers-color-scheme: light) {
 :root {
+  --background-image: url(../images/cover-image-light.png);
   --decor-element: #353430;
   --button-color: #353430;
   --title-color: #FFC2E6;
-  --shadow-title-color: #FF0070;
+  --shadow-title-footer-color: #FF0070;
   --subtitle-text: #353430;
   --background-subtitle-color: #FF8DCB;
-  --background-color: #FFF1F7;
   --text-color-desc: #353430;
   --container-title-color: #353430;
   --link-text: #FF8DCB;
   --hover-focus-link-color: #353430;
   --footer-title-color: #FFC2E6;
-  --footer-title-shadow-color: #FF0070;
-  --hover-focus-button-color: #353430;
-  --backround-image: url(../images/cover-image-light.png);
-  }
-}
-
-@media (max-width: 768px), (max-width: 375px), (prefers-color-scheme: light) {
-  :root {
-    --shadow-title: #FF8DCB;
-    --footer-title-shadow-color: #FF8DCB;
+  --hover-focus-button-color: #32312D66;
+  --hover-active-button-color: #353430;
   }
 }
 
 .page.theme_light {
+  --decor-element: #353430;
+  --button-color: #353430;
+  --title-color: #FFC2E6;
+  --shadow-title-footer-color: #FF0070;
+  --subtitle-text: #353430;
+  --background-subtitle-color: #FF8DCB;
+  --text-color-desc: #353430;
+  --container-title-color: #353430;
+  --link-text: #FF8DCB;
+  --hover-focus-link-color: #353430;
+  --footer-title-color: #FFC2E6;
+  --hover-focus-button-color: #32312D66;
+  --hover-active-button-color: #353430;
+  background-image: url(../images/cover-image-light.png);
+}
 
+
+
+.theme_light .text-decor::before {
+  display: none;
+}
+
+.theme_light .text-decor::after {
+  display: none;
+}
+
+@media (max-width: 48em), (max-width: 375px) {
+  .page.theme_light {
+  --shadow-title-footer-color: #FF8DCB;
+  } 
 }

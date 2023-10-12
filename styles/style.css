@@ -2,22 +2,20 @@
 
 .page {
   /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
-  background-image: var(--backround-image);
+  background-image: url(../images/cover-image-dark.png);
+  padding: clamp(0.625rem, 0.0271rem + 2.551vw, 1.25rem);
+  background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
+  min-width: 64em;
 }
 
-
-
-
-
-/* шапка */
 .header {
-  padding: 20px;
   display: grid;
-  min-width: 1024px;
-  min-height: 768px;
+  position: relative;
+  min-width: 61.5em;
+  max-height: 45.5em;
 }
 
 .decorated-zone::before {
@@ -27,7 +25,8 @@
   position: absolute;
   min-height: 25px;
   min-width: 25px;
-  inset-inline-end: 2%;
+  inset-inline-end: 0;
+  inset-block-start: 0;
 }
 
 .decorated-zone::after {
@@ -37,23 +36,24 @@
   position: absolute;
   min-height: 25px;
   min-width: 25px;
-  inset-block-end: 2.5%;
+  inset-block-end: 0;
 }
 
-.header__theme-menu {
-  display: flex;
-  justify-content: center;
+.text-decor {
+  justify-content: end;
 }
 
 .text-decor::before {
   content: 'REC';
   color: var(--decor-element);
-  font-family: 'IBM Plex Mono', Bold, Regular;
-  font-size: 18px;
   line-height: 25px;
   position: absolute;
-  inset-inline-end: 50px;
-  inset-block-start: 20px;
+  inset-inline-end: 3%;
+  inset-block-start: 0;
+  font-family: 'IBM Plex Mono', Bold, Regular;
+  font-style: normal;
+  font-size: 18px;
+  font-weight: 400;
 }
 
 .text-decor::after {
@@ -64,16 +64,20 @@
   border-radius: 50%;
   filter: drop-shadow(0px 0px 4px var(--decor-element));
   position: absolute;
-  inset-inline-end: 29px;
-  inset-block-start: 28px;
+  inset-inline-end: 0.9%;
+  inset-block-start: 1.1%;
+}
+
+.header__theme-menu {
+  display: grid;
+  justify-content: center;
 }
 
 .header__theme-menu-list {
   display: flex;
   gap: 25px;
+  align-items: start;
 }
-
-/* для кнопок и ссылок*/
 
 .header__theme-menu-item {
   display: flex;
@@ -82,8 +86,8 @@
 
 .header__theme-menu-button_active {
   pointer-events: none;
-  outline: 1px solid var(--hover-focus-button-color);
-  padding: 0 13px;
+  outline: 1px solid var(--hover-active-button-color);
+  padding: 2px 12px 6px;
 }
 
 button:focus {
@@ -110,69 +114,55 @@ a:hover {
   border-block-end: 1px solid var(--hover-focus-link-color);
 }
 
-/* конец кнопок и ссылок*/
-
 .header__theme-menu-button {
   color: var(--button-color);
   text-align: center;
-  font-family: 'IBM Plex Mono', Bold, Regular;
-  font-size: 18px;
-  font-style: normal;
   font-weight: 400;
+  font-size: 18px;
   line-height: 18px;
   background: transparent;
   border: 0;
+  font-family: 'IBM Plex Mono', Bold, Regular;
+  font-style: normal;
 }
 
 .title {
   font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem) ;
   color: var(--title-color);
-  text-shadow: 4px 4px 0 var(--shadow-title-color);
-  font-family: 'IBM Plex Mono', Bold, Regular;
-  font-style: normal;
+  text-shadow: 4px 4px 0 var(--shadow-title-footer-color);
   font-weight: 700;
   line-height: 82.5%;
-  margin-block-start: 274.5px;
+  margin-block-start: 273.5px;
   margin-inline-start: -20px;
+  font-family: 'IBM Plex Mono', Bold, Regular;
+  font-style: normal;
 }
 
 .header_text {
   display: grid;
   grid-template-columns: 1fr min-content;
   margin-block-start: 114px;
+  margin-block-end: 134px;
 }
 
 .title_text {
   grid-column-start: 2;
   min-width: 491px;
-  margin-block-end: 114px;
 }
 
 .title_decor,
 .text_decor_info {
   color: var(--subtitle-text);
-  font-family: 'IBM Plex Mono', Bold, Regular;
   background-color: var(--background-subtitle-color);
+  font-weight: 700;
+  font-family: 'IBM Plex Mono', Bold, Regular;
   font-size: 18px;
   font-style: normal;
-  font-weight: 700;
   line-height: 23.4px;
 }
-/* конец шапки*/
 
-
-
-
-
-
-
-
-
-/* первый абзац с текстом  */
 .main {
   display: grid;
-  background-color: var(--background-color);
-  min-width: 1024px;
 }
 
 .container {
@@ -182,9 +172,8 @@ a:hover {
 .info {
   display: grid;
   grid-template-columns: 34% 66%;
-  margin: 0 20px;
   margin-block-end: 80px;
-  margin-block-start: 60px;
+  margin-block-start: 80px;
 }
 
 .info_item {
@@ -193,10 +182,10 @@ a:hover {
 
 .container_title {
   color: var(--container-title-color);
+  font-weight: 700;
   font-family: 'IBM Plex Mono', Bold, Regular;
   font-size: 18px;
   font-style: normal;
-  font-weight: 700;
   line-height: 23.4px;
   margin-block-end: 10px;
 }
@@ -219,6 +208,7 @@ a:hover {
 
 .container_decor{
   color: var(--text-color-desc);
+  font-weight: 400;
   font-family: 'IBM Plex Mono', Bold, Regular;
   font-size: 18px;
   font-style: normal;
@@ -228,6 +218,7 @@ a:hover {
 
 .container_decor_wrap {
   color: var(--text-color-desc);
+  font-weight: 400;
   font-family: 'IBM Plex Mono', Bold, Regular;
   font-size: 18px;
   font-style: normal;
@@ -244,27 +235,12 @@ a:hover {
   grid-column-start: 2;
   margin-block-start: 10px;
 }
-/* конец первого абзаца с текстом*/
 
-
-
-
-
-
-
-
-
-
-/* второй абзац с текстом */
 .about {
   display: grid;
-  background-color: var(--background-color);
-  min-width: 1024px;
 }
 
 .container_item {
-  margin-inline-start: 20px;
-  margin-inline-end: 20px;
   margin-block-end: 80px;
 }
 
@@ -288,28 +264,12 @@ a:hover {
   grid-column-start: 3;
   grid-row-start: 2;
 }
-/* конец второго абзаца с текстом*/
 
-
-
-
-
-
-
-
-
-
-
-/* третий абзац с текстом */
 .about_wrap {
   display: grid;
-  background-color: var(--background-color);
-  min-width: 1024px;
 }
 
 .about_inner {
-  margin-inline-start: 20px;
-  margin-inline-end: 20px;
   margin-block-end: 80px;
 }
 
@@ -327,36 +287,19 @@ a:hover {
   font-weight: 400;
   margin-block-start: 10px;
 }
-/* конец третьего абзаца с текстом*/
 
-
-
-
-
-
-
-
-
-
-
-/* картинки */
 .img_box {
   display: grid;
-  background-color: var(--background-color);
-  min-width: 1024px;
 }
 
 .img_wrap {
-  margin-inline-start: 20px;
-  margin-inline-end: 20px;
-  margin-block-end: 60px;
+  margin-block-end: 80px;
 }
 
 .img_logo {
   margin-block-start: 20px;
   display: grid;
   gap: 20px;
-  max-width: 1024px;
 }
 
 .img_sunset {
@@ -399,22 +342,12 @@ a:hover {
   grid-row-end: 3;
   grid-column-start: 3;
 }
-/* конец картинок*/
 
-
-
-
-
-
-
-
-
-/* футер */
 .footer {
-  padding: 20px;
   display: grid;
-  background-color: var(--background-color);
-  min-width: 1024px;
+  min-width: 984px;
+  min-height: 728px;
+  position: relative;
 }
 
 .footer::before {
@@ -424,79 +357,68 @@ a:hover {
   position: absolute;
   min-height: 25px;
   min-width: 25px;
-  inset-inline-end: 2%;
+  inset-inline-end: 0;
+  inset-block-start: 0;
 }
 
-/* .footer::after {
+.footer::after {
   content: '';
   border-block-end: 1px solid var(--decor-element);
   border-inline-start: 1px solid var(--decor-element);
   position: absolute;
   min-height: 25px;
   min-width: 25px;
-  inset-block-end: 2.5%;
-} */
+  inset-block-end: 0.1%;
+}
 
 .footer_wrap {
   display: grid;
   justify-content: center;
   align-items: center;
-  min-block-size: 728px;
 }
 
 .text_footer {
   font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   color: var(--footer-title-color);
-  text-shadow: 2px 2px 0 var(--footer-title-shadow-color);
-  font-family: 'IBM Plex Mono', Bold, Regular;
-  font-style: normal;
+  text-shadow: 2px 2px 0 var(--shadow-title-footer-color);
   font-weight: 700;
   line-height: 82.5%;
+  font-family: 'IBM Plex Mono', Bold, Regular;
+  font-style: normal;
 }
-/* конец */
 
+@media (max-width: 48em) {
+  .page {
+    min-width: 45.5em;
+  }
 
-
-
-@media (max-width: 768px) {
   .header {
-    min-width: 768px;
-    min-height: 1024px;
-  }
-
-  .main {
-    min-width: 768px;
-  }
-
-  .about {
-    min-width: 768px;
-  }
-
-  .about_wrap {
-    min-width: 768px;
-  }
-
-  .img_box {
-    min-width: 768px;
-  }
-
-  .footer {
-    min-width: 768px;
-  }
-
-  .decorated-zone::before {
-    inset-inline-end: 2.5%;
+    max-height: 61em;
+    min-width: 45.5em;
   }
 
   .decorated-zone::after {
-    inset-block-end: 2%;
+    inset-block-end: -0.8%;
+  }
+
+  .text-decor::before {
+    inset-inline-end: 4%;
+  }
+
+  .text-decor::after {
+    inset-inline-end: 1.2%;
+    inset-block-start: 0.8%;
+  }
+
+  .footer {
+    min-height: 61em;
+    min-width: 45.5em;
   }
 
   .header__theme-menu {
-    display: grid;
     grid-row-start: 2;
     justify-content: end;
-    margin-block-start: 147.5px;
+    margin-block-start: 168.5px;
   }
 
   .header__theme-menu-list {
@@ -505,44 +427,189 @@ a:hover {
   }
 
   .title {
-    margin-block-start: 174.5px;
+    margin-block-start: 183.5px;
   }
+
+  .header_text {
+    margin-block-start: 162px;
+    margin-block-end: 183px;
+  }
+
 
   .title_text {
     min-width: 364px;
     max-height: 117px;
   }
 
-  
-  /* картинки */
-  .img_sunset,
-  .img_street {
-    max-width: 479px;
+  .info {
+    grid-template-columns: 32% 65%;
+    gap: 22px;
+    margin-block-start: 88px;
   }
 
-  .img_ice-cream, 
-  .img_tape,
-  .img_books {
-    max-width: 229px;
+  .info_item_description {
+    display: block;
   }
-  /* конец картинок */
+
+  .container_title {
+    max-width: 236px;
+  }
+
+  .container_title_item_description,
+  .item_description_text,
+  .text_item {
+    margin-block-start: 20px;
+    margin-block-end: 10px;
+  }
+
+  .inner_info {
+    grid-template-columns: 32% 65%;
+    gap: 22px;
+  }
+
+  .img_sunset {
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  .img_ice-cream {
+    max-width: 100%;
+    min-height: 100%;
+  }
+
+  .img_tape {
+    max-width: 100%;
+  }
+
+  .img_books {
+    max-height: 100%;
+    max-width: 100%;
+  }
+
+  .img_street {
+    max-width: 100%;
+    max-height: 100%;
+    margin: 0;
+  }
+
+  .img_wrap {
+    margin-block-end: 85px;
+  }
+
+  .footer::before {
+    inset-block-start: -0.8%;
+  }
+
+  .footer::after {
+    inset-block-end: -0.3%;
+  }
 }
 
+@media (max-width: 375px) {
+  .page {
+    min-width: 375px;
+  }
 
+  .header {
+    min-height: 648px;
+    min-width: 355px;
+  }
 
+  .footer {
+    min-height: 648px;
+    min-width: 355px;
+  }
 
+  .decorated-zone::after {
+    inset-block-end: 1.4%;
+  }
 
+  .text-decor::before {
+    inset-inline-end: 8%;
+  }
 
+  .text-decor::after {
+    inset-inline-end: 2.4%;
+    inset-block-start: 1.2%;
+  }
 
+  .title {
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+    margin-block-start: 67.5px;
+    margin-inline-start: 0;
+  }
 
+  .header_text {
+    margin-block-start: 55px;
+    margin-block-end: 66px;
+  }
 
+  .title_text {
+    min-width: 355px;
+  }
 
+  .header__theme-menu {
+    margin-block-start: 70.5px;
+  }
 
+  .container_title {
+    max-width: 355px;
+    margin-block-end: 20px;
+  }
 
+  .info {
+    display: block;
+    margin-block-start: 40px;
+    margin-block-end: 50px;
+  }
 
+  .container_item,
+  .about_inner {
+    margin-block-end: 50px;
+  }
 
+  .inner_info {
+    display: block;
+  }
 
+  .img_logo {
+    display: block;
+    margin-block-start: 10px;
+  }
 
-@media (min-width: 375px) {
+  .img_ice-cream {
+    margin-block-start: 7px;
+  }
 
+  .img_tape {
+    margin-block-start: 5px;
+  }
+
+  .img_books {
+    margin-block-start: 7px;
+  }
+
+  .img_street {
+    margin-block-start: 6px;
+  }
+
+  .img_wrap {
+    margin-block-end: 47px;
+  }
+
+  .text_footer {
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  }
+
+  .footer::before {
+    inset-block-start: -0.1%;
+  }
+
+  .decorated-zone::after {
+    inset-block-end: 1.5%;
+  }
+
+  .footer::after {
+    inset-block-end: 0.3%;
+  }
 }
