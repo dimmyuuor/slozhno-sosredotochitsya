@@ -1,65 +1,3 @@
-/*
-  Специально для светлой темы при наличии класса.
-  Здесь окажутся стили, которые нужно переопределить принудительно,
-  переключая тему
-*/
-
-
-:root.theme_light { 
-  --background-image: url(../images/cover-image-light.png);
-  --decor-element: #353430;
-  --button-color: #353430;
-  --title-color: #FFC2E6;
-  --shadow-title-footer-color: #FF0070;
-  --subtitle-text: #353430;
-  --background-subtitle-color: #FF8DCB;
-  --text-color-desc: #353430;
-  --container-title-color: #353430;
-  --link-text: #FF8DCB;
-  --hover-focus-link-color: #353430;
-  --footer-title-color: #FFC2E6;
-  --hover-focus-button-color: #32312D66;
-  --hover-active-button-color: #353430;
-}
-
-@media (prefers-color-scheme: light) {
-:root {
-  --background-image: url(../images/cover-image-light.png);
-  --decor-element: #353430;
-  --button-color: #353430;
-  --title-color: #FFC2E6;
-  --shadow-title-footer-color: #FF0070;
-  --subtitle-text: #353430;
-  --background-subtitle-color: #FF8DCB;
-  --text-color-desc: #353430;
-  --container-title-color: #353430;
-  --link-text: #FF8DCB;
-  --hover-focus-link-color: #353430;
-  --footer-title-color: #FFC2E6;
-  --hover-focus-button-color: #32312D66;
-  --hover-active-button-color: #353430;
-  }
-}
-
-.page.theme_light {
-  --decor-element: #353430;
-  --button-color: #353430;
-  --title-color: #FFC2E6;
-  --shadow-title-footer-color: #FF0070;
-  --subtitle-text: #353430;
-  --background-subtitle-color: #FF8DCB;
-  --text-color-desc: #353430;
-  --container-title-color: #353430;
-  --link-text: #FF8DCB;
-  --hover-focus-link-color: #353430;
-  --footer-title-color: #FFC2E6;
-  --hover-focus-button-color: #32312D66;
-  --hover-active-button-color: #353430;
-  background-image: url(../images/cover-image-light.png);
-}
-
-
-
 .theme_light .text-decor::before {
   display: none;
 }
@@ -68,8 +6,48 @@
   display: none;
 }
 
-@media (max-width: 48em), (max-width: 375px) {
-  .page.theme_light {
-  --shadow-title-footer-color: #FF8DCB;
-} 
+@media (prefers-color-scheme: light) {
+:root {
+  --background-image: url(../images/cover-image-light.png);
+  --background-color: #FFC2E6;
+  --decor-element: #353430;
+  --button-color: #353430;
+  --title-color: #FFC2E6;
+  --subtitle-text: #353430;
+  --background-subtitle-color: #FF8DCB;
+  --text-color: #353430;
+  --container-title-color: #353430;
+  --link-text: #FF8DCB;
+  --hover-focus-link-color: #353430;
+  --footer-title-color: #FFC2E6;
+  --hover-focus-button-color: rgba(50, 49, 45, 0.40);
+  --hover-active-button-color: #353430;
+  }
+  .text-decor::before {
+    display: none;
+  }
+  
+  .text-decor::after {
+    display: none;
+  }
 }
+
+.page.theme_light {
+  --background-image: url(../images/cover-image-light.png);
+  --background-color: #FFC2E6;
+  --decor-element: #353430;
+  --button-color: #353430;
+  --title-color: #FFC2E6;
+  --subtitle-text: #353430;
+  --background-subtitle-color: #FF8DCB;
+  --text-color: #353430;
+  --container-title-color: #353430;
+  --link-text: #FF8DCB;
+  --hover-focus-link-color: #353430;
+  --footer-title-color: #FFC2E6;
+  --hover-focus-button-color: rgba(50, 49, 45, 0.40);
+  --hover-active-button-color: #353430;
+}
+
+
+

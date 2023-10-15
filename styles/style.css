@@ -1,21 +1,24 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
-
 .page {
-  /* сохраните в разметке и стилях класс page. На его основе работает скрипт. */
-  background-image: url(../images/cover-image-dark.png);
-  padding: clamp(0.625rem, 0.0271rem + 2.551vw, 1.25rem);
+  background-image: var(--background-image);
+  color: var(--text-color, #f1b2ce);
+  background-color: var(--background-color, #000028);
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  min-width: 64em;
 }
 
-.header {
+.header,
+.footer {
   display: grid;
   position: relative;
-  min-width: 61.5em;
-  max-height: 768px;
+  min-block-size: calc(100vh - 40px);
+  margin: 20px;
+}
+
+.main {
+  margin-inline-start: 20px;
+  margin-inline-end: 20px;
 }
 
 .decorated-zone::before {
@@ -23,10 +26,9 @@
   border-block-start: 1px solid var(--decor-element);
   border-inline-end: 1px solid var(--decor-element);
   position: absolute;
-  min-height: 25px;
-  min-width: 25px;
+  min-block-size: 25px;
+  min-inline-size: 25px;
   inset-inline-end: 0;
-  inset-block-start: 0;
 }
 
 .decorated-zone::after {
@@ -34,9 +36,9 @@
   border-block-end: 1px solid var(--decor-element);
   border-inline-start: 1px solid var(--decor-element);
   position: absolute;
-  min-height: 25px;
-  min-width: 25px;
-  inset-block-end: 2.5%;
+  min-block-size: 25px;
+  min-inline-size: 25px;
+  inset-block-end: 0;
 }
 
 .text-decor {
@@ -50,7 +52,7 @@
   position: absolute;
   inset-inline-end: 3%;
   inset-block-start: 0;
-  font-family: 'IBM Plex Mono', Bold, Regular;
+  font-family: 'IBM Plex Mono', Arial, sans-serif;
   font-style: normal;
   font-size: 18px;
   font-weight: 400;
@@ -62,7 +64,7 @@
   height: 9px;
   background-color: var(--decor-element);
   border-radius: 50%;
-  filter: drop-shadow(0px 0px 4px var(--decor-element));
+  box-shadow: 0 0 5px 3px var(--decor-element);
   position: absolute;
   inset-inline-end: 0.9%;
   inset-block-start: 1.1%;
@@ -75,7 +77,7 @@
 
 .header__theme-menu-list {
   display: flex;
-  gap: 25px;
+  gap: 13px;
   align-items: start;
 }
 
@@ -87,7 +89,6 @@
 .header__theme-menu-button_active {
   pointer-events: none;
   outline: 1px solid var(--hover-active-button-color);
-  padding: 2px 12px 6px;
 }
 
 button:focus {
@@ -122,47 +123,56 @@ a:hover {
   line-height: 18px;
   background: transparent;
   border: 0;
-  font-family: 'IBM Plex Mono', Bold, Regular;
+  font-family: 'IBM Plex Mono', Arial, sans-serif;
   font-style: normal;
+  appearance: none;
+  text-transform: lowercase;
 }
 
 .title {
-  font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem) ;
+  margin-block-start: 46px;
+  margin-inline-start: -20px;
+}
+
+.style_title_header_footer {
+  font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
   color: var(--title-color);
-  text-shadow: 4px 4px 0 var(--shadow-title-footer-color);
+  text-shadow: 4px 4px 0 #FF0070;
   font-weight: 700;
   line-height: 82.5%;
-  margin-block-start: 273.5px;
-  margin-inline-start: -20px;
-  font-family: 'IBM Plex Mono', Bold, Regular;
+  font-family: 'IBM Plex Mono', Arial, sans-serif;
   font-style: normal;
+}
+
+.text_footer {
+  text-shadow: 2px 2px 0 #FF0070;
 }
 
 .header_text {
   display: grid;
   grid-template-columns: 1fr min-content;
-  margin-block-start: 115px;
-  margin-block-end: 134px;
+  block-size: 4.4375em;
 }
 
 .title_text {
   grid-column-start: 2;
-  min-width: 491px;
+  inline-size: 491px;
 }
 
-.title_decor,
+.article_title_decor,
 .text_decor_info {
   color: var(--subtitle-text);
   background-color: var(--background-subtitle-color);
   font-weight: 700;
-  font-family: 'IBM Plex Mono', Bold, Regular;
+  font-family: 'IBM Plex Mono', Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   line-height: 23.4px;
 }
 
-.main {
-  display: grid;
+.title_text_decor {
+  background-color: var(--background-subtitle-color);
+  grid-column-start: 2;
 }
 
 .container {
@@ -173,7 +183,7 @@ a:hover {
   display: grid;
   grid-template-columns: 34% 66%;
   margin-block-end: 80px;
-  margin-block-start: 62px;
+  margin-block-start: 80px;
 }
 
 .info_item {
@@ -183,14 +193,14 @@ a:hover {
 .container_title {
   color: var(--container-title-color);
   font-weight: 700;
-  font-family: 'IBM Plex Mono', Bold, Regular;
+  font-family: 'IBM Plex Mono', Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   line-height: 23.4px;
   margin-block-end: 10px;
 }
 
-.container_title_item {
+.article_title_item {
   grid-row-start: 1;
   grid-column-start: 2;
 }
@@ -208,15 +218,13 @@ a:hover {
 
 .container_decor,
 .container_decor_wrap {
-  color: var(--text-color-desc);
-  font-family: 'IBM Plex Mono', Bold, Regular;
+  color: var(--text-color);
+  font-family: 'IBM Plex Mono', Arial, sans-serif;
   font-size: 18px;
   font-style: normal;
   font-weight: 400;
   line-height: 23.4px;
 }
-
-
 
 .container_title_item_just {
   grid-column-start: 2;
@@ -280,12 +288,8 @@ a:hover {
   margin-block-start: 10px;
 }
 
-.img_box {
-  display: grid;
-}
-
 .img_wrap {
-  margin-block-end: 60px;
+  margin-block-end: 80px;
 }
 
 .img_logo {
@@ -294,31 +298,30 @@ a:hover {
   gap: 20px;
 }
 
-.img_sunset {
-  max-height: 100%;
-  max-width: 649px;
+.style_img {
   object-fit: cover;
+  object-position: center;
+  block-size: 100%;
+  inline-size: 100%;
+  display: block;
+}
+
+.img_sunset {
   grid-column-start: span 2;
 }
 
 .img_tape {
-  max-width: 315px;
-  min-height: 100%;
-  object-fit: cover;
   grid-column-start: 1;
   grid-row-start: 2;
   grid-row-end: 4;
 }
 
 .img_books {
-  max-height: 315px;
   grid-column-start: 2;
 }
 
 .img_street {
-  min-width: 100%;
-  max-height: 428px;
-  object-fit: cover;
+  block-size: 26.75em;
   grid-column-start: 2;
   grid-row-start: 3;
   grid-column-end: 4;
@@ -326,40 +329,9 @@ a:hover {
 }
 
 .img_ice-cream {
-  max-width: 315px;
-  min-height: 100%;
-  object-fit: cover;
   grid-row-start: 1;
   grid-row-end: 3;
   grid-column-start: 3;
-}
-
-.footer {
-  display: grid;
-  min-width: 61.5em;
-  min-height: 768px;
-  position: relative;
-}
-
-.footer::before {
-  content: '';
-  border-block-start: 1px solid var(--decor-element);
-  border-inline-end: 1px solid var(--decor-element);
-  position: absolute;
-  min-height: 25px;
-  min-width: 25px;
-  inset-inline-end: 0;
-  inset-block-start: 2.5%;
-}
-
-.footer::after {
-  content: '';
-  border-block-end: 1px solid var(--decor-element);
-  border-inline-start: 1px solid var(--decor-element);
-  position: absolute;
-  min-height: 25px;
-  min-width: 25px;
-  inset-block-end: 2.6%;
 }
 
 .footer_wrap {
@@ -368,31 +340,7 @@ a:hover {
   align-items: center;
 }
 
-.text_footer {
-  font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
-  color: var(--footer-title-color);
-  text-shadow: 2px 2px 0 var(--shadow-title-footer-color);
-  font-weight: 700;
-  line-height: 82.5%;
-  font-family: 'IBM Plex Mono', Bold, Regular;
-  font-style: normal;
-}
-
 @media (max-width: 48em) {
-  .page {
-    min-width: 45.5em;
-  }
-
-  .header {
-    height: 95vh;
-    min-height: 984px;
-    min-width: 728px;
-  }
-
-  .decorated-zone::after {
-    inset-block-end: 0;
-  }
-
   .text-decor::before {
     inset-inline-end: 4%;
   }
@@ -402,15 +350,15 @@ a:hover {
     inset-block-start: 0.8%;
   }
 
-  .footer {
-    min-height: 100vh;
-    min-width: 45.5em;
-  }
-
   .header__theme-menu {
     grid-row-start: 2;
     justify-content: end;
-    margin-block-start: 176.5px;
+    block-size: 0;
+    margin-block-start: 9px;
+  }
+
+  .title {
+    margin-block-start: 113px;
   }
 
   .header__theme-menu-list {
@@ -418,33 +366,39 @@ a:hover {
     gap: 13px;
   }
 
-  .title {
-    margin-block-start: 174.5px;
-  }
-
   .header_text {
-    margin-block-start: 162px;
-    margin-block-end: 183px;
+    margin-block-end: 47px;
   }
-
 
   .title_text {
-    min-width: 364px;
-    max-height: 117px;
+    inline-size: 22.75rem;
   }
 
   .info {
     grid-template-columns: 32% 65%;
     gap: 22px;
     margin-block-start: 80px;
+    max-inline-size: 45.5rem;
+  }
+
+  .about {
+    max-inline-size: 45.5rem;
   }
 
   .info_item_description {
     display: block;
   }
 
+  .about_wrap {
+    max-inline-size: 45.5rem;
+  }
+
+  .img_box {
+    max-inline-size: 45.5rem;
+  }
+
   .container_title {
-    max-width: 236px;
+    max-width: 14.75rem;
   }
 
   .container_title_item_description,
@@ -460,61 +414,60 @@ a:hover {
   }
 
   .img_sunset {
-    max-height: 100%;
-    max-width: 100%;
+    block-size: 100%;
+    inline-size: 100%;
   }
 
   .img_ice-cream {
-    max-width: 100%;
-    min-height: 100%;
+    block-size: 100%;
+    inline-size: 100%;
   }
 
   .img_tape {
-    max-width: 100%;
+    inline-size: 100%;
   }
 
   .img_books {
-    max-height: 100%;
-    max-width: 100%;
+    block-size: 100%;
+    inline-size: 100%;
   }
 
   .img_street {
-    max-width: 100%;
-    max-height: 100%;
+    inline-size: 100%;
+    block-size: 100%;
     margin: 0;
   }
 
   .img_wrap {
-    margin-block-end: 60px;
-  }
-
-  .footer::before {
-    inset-block-start: 1.8%;
-  }
-
-  .footer::after {
-    inset-block-end: 2%;
+    margin-block-end: 80px;
   }
 }
 
 @media (max-width: 375px) {
-  .page {
-    min-width: 375px;
-  }
-
-  .header {
-    height: 95vh;
-    min-height: 648px;
-    min-width: 355px;
-  }
-
+  .header,
   .footer {
-    min-height: 648px;
-    min-width: 355px;
+    display: grid;
+    position: relative;
+    min-block-size: calc(100vh - 20px);
+    margin: 10px;
   }
 
-  .decorated-zone::after {
-    inset-block-end: 0;
+  .text_footer,
+  .title {
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  }
+
+  .main {
+    margin-inline-start: 10px;
+    margin-inline-end: 10px;
+  }
+
+  .title_text_decor {
+    inline-size: 355px;
+  }
+
+  .title_text {
+    inline-size: 355px;
   }
 
   .text-decor::before {
@@ -527,26 +480,20 @@ a:hover {
   }
 
   .title {
-    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-    margin-block-start: 66.5px;
+    margin-block-start: 112.5px;
     margin-inline-start: 0;
   }
 
   .header_text {
-    margin-block-start: 55px;
-    margin-block-end: 66px;
-  }
-
-  .title_text {
-    min-width: 355px;
+    margin-block-end: 48px;
   }
 
   .header__theme-menu {
-    margin-block-start: 70.5px;
+    margin-block-start: 9px;
   }
 
   .container_title {
-    max-width: 355px;
+    min-inline-size: 355px;
     margin-block-end: 20px;
   }
 
@@ -570,35 +517,14 @@ a:hover {
     margin-block-start: 10px;
   }
 
-  .img_ice-cream {
-    margin-block-start: 7px;
-  }
-
-  .img_tape {
-    margin-block-start: 5px;
-  }
-
-  .img_books {
-    margin-block-start: 7px;
-  }
-
+  .img_ice-cream,
+  .img_tape,
+  .img_books,
   .img_street {
-    margin-block-start: 6px;
+    margin-block-start: 10px;
   }
 
   .img_wrap {
-    margin-block-end: 47px;
-  }
-
-  .text_footer {
-    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
-  }
-
-  .footer::before {
-    inset-block-start: -0.1%;
-  }
-
-  .footer::after {
-    inset-block-end: 0.3%;
+    margin-block-end: 51px;
   }
 }
