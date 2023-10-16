@@ -1,3 +1,21 @@
+.page.theme_light {
+  --background-image: url(../images/cover-image-light.png);
+  --background-color: #FFC2E6;
+  --decor-element: #353430;
+  --button-color: #353430;
+  --title-color: #FFC2E6;
+  --subtitle-text: #353430;
+  --background-subtitle-color: #FF8DCB;
+  --text-color: #353430;
+  --container-title-color: #353430;
+  --link-text: #FF8DCB;
+  --hover-focus-link-color: #353430;
+  --footer-title-color: #FFC2E6;
+  --hover-focus-button-color: rgba(50, 49, 45, 0.40);
+  --hover-active-button-color: #353430;
+  --shadow-title-footer-color: #FF0070;
+}
+
 .theme_light .text-decor::before {
   display: none;
 }
@@ -22,6 +40,7 @@
   --footer-title-color: #FFC2E6;
   --hover-focus-button-color: rgba(50, 49, 45, 0.40);
   --hover-active-button-color: #353430;
+  --shadow-title-footer-color: #FF0070;
   }
   .text-decor::before {
     display: none;
@@ -32,22 +51,6 @@
   }
 }
 
-.page.theme_light {
-  --background-image: url(../images/cover-image-light.png);
-  --background-color: #FFC2E6;
-  --decor-element: #353430;
-  --button-color: #353430;
-  --title-color: #FFC2E6;
-  --subtitle-text: #353430;
-  --background-subtitle-color: #FF8DCB;
-  --text-color: #353430;
-  --container-title-color: #353430;
-  --link-text: #FF8DCB;
-  --hover-focus-link-color: #353430;
-  --footer-title-color: #FFC2E6;
-  --hover-focus-button-color: rgba(50, 49, 45, 0.40);
-  --hover-active-button-color: #353430;
-}
 
 
 
