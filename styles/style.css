@@ -389,8 +389,7 @@ a:hover {
   }
 
   .info {
-    grid-template-columns: 32% 65%;
-    gap: 22px;
+    grid-template-columns: 35% 65%;
     margin-block-start: 60px;
   }
 
@@ -410,8 +409,7 @@ a:hover {
   }
 
   .inner_info {
-    grid-template-columns: 32% 65%;
-    gap: 22px;
+    grid-template-columns: 35% 65%;
   }
 
   .img_street {
@@ -422,6 +420,17 @@ a:hover {
 
   .img_wrap {
     margin-block-end: 60px;
+  }
+}
+
+@media (max-width: 767px) {
+  .inner_info,
+  .info {
+    grid-template-columns: 1fr;
+  }
+
+  .style_title_header_footer {
+    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   }
 }
 
@@ -438,10 +447,6 @@ a:hover {
   .decorated-zone::after {
     inset-block-end: 1.5%;
     inset-inline-start: 2.7%;
-  }
-
-  .style_title_header_footer {
-    font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
   }
 
   .main {
@@ -478,7 +483,6 @@ a:hover {
   }
 
   .info {
-    display: block;
     margin-block-start: 40px;
     margin-block-end: 50px;
   }
@@ -486,10 +490,6 @@ a:hover {
   .container_item,
   .about_inner {
     margin-block-end: 50px;
-  }
-
-  .inner_info {
-    display: block;
   }
 
   .img_logo {
